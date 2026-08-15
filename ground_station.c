@@ -63,6 +63,7 @@ int main(void)
     printf("Satellite connected successfully.\n\n");
 
     printf("Available commands: START, STOP, ACTIVE, LOW_POWER, QUIT\n");
+    printf("Enter a command :\n");
 
     //loop to handle commands and packets and responses received
     while(1){
