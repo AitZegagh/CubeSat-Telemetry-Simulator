@@ -13,7 +13,7 @@ I am currently working on implementing a ground control UI that would display th
 
 ## Main features
 
-- TCP client-server communication between the satellite and ground station implemented using BSD sockets
+- TCP client-server communication between the satellite and ground station implemented using sockets
 - I/O multiplexing with select() and non-blocking socket reads using MSG_DONTWAIT
 - Real-time telemetry streaming over a persistent TCP connection
 - Interactive ground-station command interface during runtime
