@@ -39,7 +39,7 @@ int main(void)
 
 
 
-    //socket in listening mode
+    //configure socket : listening mode
     if (listen(server_socket,1)<0) {
         perror("listen");
         close(server_socket);
@@ -53,7 +53,7 @@ int main(void)
     printf("Waiting for satellite connection...\n");
 
 
-    //wait until a connection occurs
+    //waiting for connection
     int client_socket=accept(server_socket,(struct sockaddr *)&client_address,&client_address_size);
     if(client_socket<0){
         perror("accept");
@@ -65,10 +65,10 @@ int main(void)
     printf("Available commands: START, STOP, ACTIVE, LOW_POWER, QUIT\n");
     printf("Enter a command :\n");
 
-    //loop to handle commands and packets and responses received
+    //main loop
     while(1){
 
-        fd_set read_fds; //set containing the inputs that the function select monitors
+        fd_set read_fds; //create the set containing the inputs that the function "select" checks continuously 
         FD_ZERO(&read_fds); //clears the set
         FD_SET(STDIN_FILENO, &read_fds); //adds keyboard input to the set
         FD_SET(client_socket, &read_fds);//adds the satellite inputs to the set
